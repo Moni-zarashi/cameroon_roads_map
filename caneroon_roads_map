@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1cfa4cd2a642fcb42c03552054d7df13 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;
+                background: white; padding: 10px 12px; border: 1px solid #999; border-radius: 6px;
+                font-size: 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+      <b>凡例 / Legend</b><br>
+      <span style="color:green;">■</span> 良好 / good<br>
+      <span style="color:orange;">■</span> 通行可能 / passable<br>
+      <span style="color:blue;">■</span> 交通量多い / traffic<br>
+      <span style="color:red;">■</span> 穴ぼこ / potholes<br>
+      <span style="color:brown;">■</span> 未舗装 / unpaved<br>
+      <span style="color:purple;">■</span> 混在 / mixed<br>
+      <span style="color:darkred;">■</span> 未舗装多く悪い / mixed_bad
+    </div>
+    
+    
+            <div class="folium-map" id="map_1cfa4cd2a642fcb42c03552054d7df13" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_1cfa4cd2a642fcb42c03552054d7df13 = L.map(
+                "map_1cfa4cd2a642fcb42c03552054d7df13",
+                {
+                    center: [5.5, 12.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_757418a8fd6e4ae286945e48639cc988 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_757418a8fd6e4ae286945e48639cc988.addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var marker_27be3dc04a253eb945a7c46823fc5d98 = L.marker(
+                [3.87, 11.52],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_6e0c3576d7aa72ebb0a02d1f6b3b1c2f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_465679eaf136cd827f0c67913b33f668 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_47fd1528b0fdc00591f4f4544df5e0db = $(`<div id="html_47fd1528b0fdc00591f4f4544df5e0db" style="width: 100.0%; height: 100.0%;">Yaoundé</div>`)[0];
+                popup_465679eaf136cd827f0c67913b33f668.setContent(html_47fd1528b0fdc00591f4f4544df5e0db);
+            
+        
+
+        marker_27be3dc04a253eb945a7c46823fc5d98.bindPopup(popup_465679eaf136cd827f0c67913b33f668)
+        ;
+
+        
+    
+    
+            marker_27be3dc04a253eb945a7c46823fc5d98.bindTooltip(
+                `<div>
+                     Yaoundé
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_27be3dc04a253eb945a7c46823fc5d98.setIcon(icon_6e0c3576d7aa72ebb0a02d1f6b3b1c2f);
+            
+    
+            var marker_cf476b29c66474777fc7c32a5c2748ad = L.marker(
+                [4.05, 9.7],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_0410852aaac038b562e4d5dd31a5d984 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c9f4a010b36c0b8999c01e2c1ac49b3e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1dc4dfa24d18c54c55206866b669a94d = $(`<div id="html_1dc4dfa24d18c54c55206866b669a94d" style="width: 100.0%; height: 100.0%;">Douala</div>`)[0];
+                popup_c9f4a010b36c0b8999c01e2c1ac49b3e.setContent(html_1dc4dfa24d18c54c55206866b669a94d);
+            
+        
+
+        marker_cf476b29c66474777fc7c32a5c2748ad.bindPopup(popup_c9f4a010b36c0b8999c01e2c1ac49b3e)
+        ;
+
+        
+    
+    
+            marker_cf476b29c66474777fc7c32a5c2748ad.bindTooltip(
+                `<div>
+                     Douala
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cf476b29c66474777fc7c32a5c2748ad.setIcon(icon_0410852aaac038b562e4d5dd31a5d984);
+            
+    
+            var marker_f66106ce3c453d84b2b9cdc7aa0b9c44 = L.marker(
+                [5.48, 10.42],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_e56d80e988e8721b6b575922593582f8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_76f68980eae257ab2b450881fa8a8db3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8395d9f3de388734498bbadb0bcbc2dd = $(`<div id="html_8395d9f3de388734498bbadb0bcbc2dd" style="width: 100.0%; height: 100.0%;">Bafoussam</div>`)[0];
+                popup_76f68980eae257ab2b450881fa8a8db3.setContent(html_8395d9f3de388734498bbadb0bcbc2dd);
+            
+        
+
+        marker_f66106ce3c453d84b2b9cdc7aa0b9c44.bindPopup(popup_76f68980eae257ab2b450881fa8a8db3)
+        ;
+
+        
+    
+    
+            marker_f66106ce3c453d84b2b9cdc7aa0b9c44.bindTooltip(
+                `<div>
+                     Bafoussam
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f66106ce3c453d84b2b9cdc7aa0b9c44.setIcon(icon_e56d80e988e8721b6b575922593582f8);
+            
+    
+            var marker_4cb8350233fc1c5a3a34f08c76a82008 = L.marker(
+                [5.5, 10.63],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_88deae4d98acb3d12e72d853f399aa59 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ffb8cef2157352e75a8c24c60811b116 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_12095a1785b9290020a94bf485321ffe = $(`<div id="html_12095a1785b9290020a94bf485321ffe" style="width: 100.0%; height: 100.0%;">Foumbot</div>`)[0];
+                popup_ffb8cef2157352e75a8c24c60811b116.setContent(html_12095a1785b9290020a94bf485321ffe);
+            
+        
+
+        marker_4cb8350233fc1c5a3a34f08c76a82008.bindPopup(popup_ffb8cef2157352e75a8c24c60811b116)
+        ;
+
+        
+    
+    
+            marker_4cb8350233fc1c5a3a34f08c76a82008.bindTooltip(
+                `<div>
+                     Foumbot
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4cb8350233fc1c5a3a34f08c76a82008.setIcon(icon_88deae4d98acb3d12e72d853f399aa59);
+            
+    
+            var marker_1a116a656b3c75ce0cfcbc9d1cf9a601 = L.marker(
+                [5.6, 10.9],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_bdba01384074b6ac0ad6dc649ff782af = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7a484428ce0a51f8cb97b78b44ddf308 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_52e63427f1cda7e36355835346ac978e = $(`<div id="html_52e63427f1cda7e36355835346ac978e" style="width: 100.0%; height: 100.0%;">Foumban</div>`)[0];
+                popup_7a484428ce0a51f8cb97b78b44ddf308.setContent(html_52e63427f1cda7e36355835346ac978e);
+            
+        
+
+        marker_1a116a656b3c75ce0cfcbc9d1cf9a601.bindPopup(popup_7a484428ce0a51f8cb97b78b44ddf308)
+        ;
+
+        
+    
+    
+            marker_1a116a656b3c75ce0cfcbc9d1cf9a601.bindTooltip(
+                `<div>
+                     Foumban
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1a116a656b3c75ce0cfcbc9d1cf9a601.setIcon(icon_bdba01384074b6ac0ad6dc649ff782af);
+            
+    
+            var marker_98a6d337f4ae1dd9232e0e74f0c601dc = L.marker(
+                [5.77, 10.93],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_bf6d3cef66ca84f26ea28af8e6a01e0b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_db61592e8249cefb0137cd0878a1fcd9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_85a93eb399d0cbcd84ccf2ce865caf55 = $(`<div id="html_85a93eb399d0cbcd84ccf2ce865caf55" style="width: 100.0%; height: 100.0%;">Magba</div>`)[0];
+                popup_db61592e8249cefb0137cd0878a1fcd9.setContent(html_85a93eb399d0cbcd84ccf2ce865caf55);
+            
+        
+
+        marker_98a6d337f4ae1dd9232e0e74f0c601dc.bindPopup(popup_db61592e8249cefb0137cd0878a1fcd9)
+        ;
+
+        
+    
+    
+            marker_98a6d337f4ae1dd9232e0e74f0c601dc.bindTooltip(
+                `<div>
+                     Magba
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_98a6d337f4ae1dd9232e0e74f0c601dc.setIcon(icon_bf6d3cef66ca84f26ea28af8e6a01e0b);
+            
+    
+            var marker_6412a0cec52697fb10262cde3c308e4b = L.marker(
+                [6.47, 12.63],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_74b43cec7c9a618cd4898ff475fedb82 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d2b1a3af105011e317021111851c9e41 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_14466e2ada8838e1dd0f9150748fa815 = $(`<div id="html_14466e2ada8838e1dd0f9150748fa815" style="width: 100.0%; height: 100.0%;">Tibati</div>`)[0];
+                popup_d2b1a3af105011e317021111851c9e41.setContent(html_14466e2ada8838e1dd0f9150748fa815);
+            
+        
+
+        marker_6412a0cec52697fb10262cde3c308e4b.bindPopup(popup_d2b1a3af105011e317021111851c9e41)
+        ;
+
+        
+    
+    
+            marker_6412a0cec52697fb10262cde3c308e4b.bindTooltip(
+                `<div>
+                     Tibati
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6412a0cec52697fb10262cde3c308e4b.setIcon(icon_74b43cec7c9a618cd4898ff475fedb82);
+            
+    
+            var marker_b83dd3d85fef1a0149ec02b0581a6d87 = L.marker(
+                [7.32, 13.58],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_edcf68d313f0b3e9a20240e889c888dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_23bafcfab650f35072eceb0023fcc085 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6b15629f5fd845f2fea72a346253ff80 = $(`<div id="html_6b15629f5fd845f2fea72a346253ff80" style="width: 100.0%; height: 100.0%;">Ngaoundéré</div>`)[0];
+                popup_23bafcfab650f35072eceb0023fcc085.setContent(html_6b15629f5fd845f2fea72a346253ff80);
+            
+        
+
+        marker_b83dd3d85fef1a0149ec02b0581a6d87.bindPopup(popup_23bafcfab650f35072eceb0023fcc085)
+        ;
+
+        
+    
+    
+            marker_b83dd3d85fef1a0149ec02b0581a6d87.bindTooltip(
+                `<div>
+                     Ngaoundéré
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b83dd3d85fef1a0149ec02b0581a6d87.setIcon(icon_edcf68d313f0b3e9a20240e889c888dc);
+            
+    
+            var marker_771f5da6ce16c9fdca0f94dc73511e8b = L.marker(
+                [6.52, 14.29],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_90942fde61be0d2ab91df1232a1d478e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b66209e0fd2d861183f5a4d03bfcbac7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9cc8551fdf82d0878e1d8b194020d022 = $(`<div id="html_9cc8551fdf82d0878e1d8b194020d022" style="width: 100.0%; height: 100.0%;">Meiganga</div>`)[0];
+                popup_b66209e0fd2d861183f5a4d03bfcbac7.setContent(html_9cc8551fdf82d0878e1d8b194020d022);
+            
+        
+
+        marker_771f5da6ce16c9fdca0f94dc73511e8b.bindPopup(popup_b66209e0fd2d861183f5a4d03bfcbac7)
+        ;
+
+        
+    
+    
+            marker_771f5da6ce16c9fdca0f94dc73511e8b.bindTooltip(
+                `<div>
+                     Meiganga
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_771f5da6ce16c9fdca0f94dc73511e8b.setIcon(icon_90942fde61be0d2ab91df1232a1d478e);
+            
+    
+            var marker_772b1de8206b1943ab5c9dc8cdff5230 = L.marker(
+                [6.5, 14.05],
+                {
+}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            var icon_9aa6dda4a98903e33e982aec20b62d18 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "gray",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e9e36530d0accb406e763c75b585881 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bce148f5771966bff0522734081dd087 = $(`<div id="html_bce148f5771966bff0522734081dd087" style="width: 100.0%; height: 100.0%;">Ngaoundal</div>`)[0];
+                popup_4e9e36530d0accb406e763c75b585881.setContent(html_bce148f5771966bff0522734081dd087);
+            
+        
+
+        marker_772b1de8206b1943ab5c9dc8cdff5230.bindPopup(popup_4e9e36530d0accb406e763c75b585881)
+        ;
+
+        
+    
+    
+            marker_772b1de8206b1943ab5c9dc8cdff5230.bindTooltip(
+                `<div>
+                     Ngaoundal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_772b1de8206b1943ab5c9dc8cdff5230.setIcon(icon_9aa6dda4a98903e33e982aec20b62d18);
+            
+    
+            var poly_line_093e66a95bd7fac99313cb06b0232d24 = L.polyline(
+                [[3.87, 11.52], [4.05, 9.7]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_093e66a95bd7fac99313cb06b0232d24.bindTooltip(
+                `<div>
+                     Yaoundé – Douala: 交通量が多い
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_26e3f503f4fba329e9f42730d26f91e8 = L.polyline(
+                [[4.05, 9.7], [5.48, 10.42]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_26e3f503f4fba329e9f42730d26f91e8.bindTooltip(
+                `<div>
+                     Douala – Bafoussam: 通行可能
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_babf43036e80da0feb95b7756bdfc3f3 = L.polyline(
+                [[5.48, 10.42], [3.87, 11.52]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_babf43036e80da0feb95b7756bdfc3f3.bindTooltip(
+                `<div>
+                     Bafoussam – Yaoundé: 良好
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_46493b8548f6828ec42b96c6755a86a3 = L.polyline(
+                [[3.87, 11.52], [5.5, 10.63]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_46493b8548f6828ec42b96c6755a86a3.bindTooltip(
+                `<div>
+                     Yaoundé – Foumbot: 良好
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_9987dda25ca569e511f547964cb771aa = L.polyline(
+                [[5.5, 10.63], [5.6, 10.9]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_9987dda25ca569e511f547964cb771aa.bindTooltip(
+                `<div>
+                     Foumbot – Foumban: 穴ぼこあり
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_647b40e55262ee3983e79825dd6b3cb3 = L.polyline(
+                [[5.6, 10.9], [5.77, 10.93]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_647b40e55262ee3983e79825dd6b3cb3.bindTooltip(
+                `<div>
+                     Foumban – Magba: 良好
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_fdb99fb3b7ba6510a6e5d9b3e15cd5af = L.polyline(
+                [[5.77, 10.93], [6.47, 12.63]],
+                {"bubblingMouseEvents": true, "color": "brown", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "brown", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_fdb99fb3b7ba6510a6e5d9b3e15cd5af.bindTooltip(
+                `<div>
+                     Magba – Tibati: 未舗装
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_18909768e4b0084f65014c7888b58808 = L.polyline(
+                [[6.47, 12.63], [7.32, 13.58]],
+                {"bubblingMouseEvents": true, "color": "darkred", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "darkred", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_18909768e4b0084f65014c7888b58808.bindTooltip(
+                `<div>
+                     Tibati – Ngaoundéré: 40km舗装・180km未舗装（非常に悪い）
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_3f4869886cfca2b3579fbfb8195e0717 = L.polyline(
+                [[7.32, 13.58], [6.52, 14.29]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_3f4869886cfca2b3579fbfb8195e0717.bindTooltip(
+                `<div>
+                     Ngaoundéré – Meiganga: 155km 良好
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cfd57e2a90609a2078bbe2abf606f6a6 = L.polyline(
+                [[6.52, 14.29], [6.5, 14.05]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_cfd57e2a90609a2078bbe2abf606f6a6.bindTooltip(
+                `<div>
+                     Meiganga – Ngaoundal: 154km 穴ぼこあり
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_cca6459fb43b3cb044c2648a900021fc = L.polyline(
+                [[6.5, 14.05], [6.47, 12.63]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_cca6459fb43b3cb044c2648a900021fc.bindTooltip(
+                `<div>
+                     Ngaoundal – Tibati: 100km: 30km穴ぼこ/30km未舗装/40km良好
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var poly_line_f474e747e277b949e757f0a752349c09 = L.polyline(
+                [[6.47, 12.63], [3.87, 11.52]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_1cfa4cd2a642fcb42c03552054d7df13);
+        
+    
+            poly_line_f474e747e277b949e757f0a752349c09.bindTooltip(
+                `<div>
+                     Tibati – Yaoundé: 良好
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
